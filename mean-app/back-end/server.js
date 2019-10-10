@@ -79,6 +79,4 @@ router.route('/tasks/delete/:id').get((req, res) => {
 
 app.use('/', router);
 
-//app.get('/', (req, res) => res.send('Hello!'));
-
 app.listen(4000, () => console.log('Express server running on port 4000'));
