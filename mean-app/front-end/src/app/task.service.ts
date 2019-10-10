@@ -20,21 +20,21 @@ export class TaskService {
 
   addTask(title, responsible, description, severity) {
     const task = {
-        title: title,
-        responsible: responsible,
-        description: description,
-        severity: severity
+      title: title,
+      responsible: responsible,
+      description: description,
+      severity: severity
     };
     return this.http.post(`${this.uri}/tasks/add`, task);
   }
 
   updateTask(id, title, responsible, description, severity, status) {
     const task = {
-        title: title,
-        responsible: responsible,
-        description: description,
-        severity: severity,
-        status: status
+      title: title,
+      responsible: responsible,
+      description: description,
+      severity: severity,
+      status: status
     };
     return this.http.post(`${this.uri}/tasks/update/${id}`, task);
   }
