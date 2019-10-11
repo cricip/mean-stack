@@ -14,7 +14,7 @@ import { TaskService } from '../../task.service';
 export class ListComponent implements OnInit {
 
   tasks: Task[];
-  displayedColumns = ['title', 'responsible', 'severity', 'status', 'actions'];
+  displayedColumns = ['title', 'responsible', 'difficulty', 'status', 'actions'];
 
   constructor(private taskService: TaskService, private router: Router) {}
 

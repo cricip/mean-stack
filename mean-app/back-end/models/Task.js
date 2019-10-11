@@ -12,7 +12,7 @@ let Task = new Schema({
     description: {
         type: String
     },
-    severity: {
+    difficulty: {
         type: String
     },
     status: {
