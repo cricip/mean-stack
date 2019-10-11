@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { MatTableDataSource } from '@angular/material';
+
+import { Task } from '../../task.model';
 import { TaskService } from '../../task.service';
 
 @Component({
@@ -6,14 +10,35 @@ import { TaskService } from '../../task.service';
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.sass']
 })
+
 export class ListComponent implements OnInit {
 
-  constructor(private taskService: TaskService) { }
+  tasks: Task[];
+  displayedColumns = ['title', 'responsible', 'severity', 'status', 'actions'];
+
+  constructor(private taskService: TaskService, private router: Router) {}
 
   ngOnInit() {
-    this.taskService.getTasks().subscribe((tasks) => {
-      console.log(tasks);
-    })
+    this.fetchTasks();
   }
 
+  fetchTasks() {
+    this.taskService
+      .getTasks()
+      .subscribe((data: Task[]) => {
+        this.tasks = data;
+        console.log('Data requested');
+        console.log(this.tasks);
+      });
+  }
+
+  editTask(id) {
+    this.router.navigate([`/edit/${id}`]);
+  }
+
+  deleteTask(id) {
+    this.taskService.deleteTask(id).subscribe(() => {
+      this.fetchTasks();
+    })
+  }
 }
