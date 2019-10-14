@@ -10,7 +10,7 @@ import { Task } from '../../task.model';
 @Component({
   selector: 'app-edit',
   templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.sass']
+  styleUrls: ['./edit.component.css']
 })
 
 export class EditComponent implements OnInit {
